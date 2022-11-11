@@ -21,6 +21,8 @@ bool LeftFrontWheelController::init(hardware_interface::RobotHW *robot_hw, ros::
 }
 
 void LeftFrontWheelController::update(const ros::Time &time, const ros::Duration &period) {
+  double vel = ctrl_lf_.joint_.getVelocity();
+  ROS_INFO("vel is : %f", vel);
   ctrl_lf_.setCommand(lf_joint_cmd_);
   ctrl_lf_.update(time, period);
 }
