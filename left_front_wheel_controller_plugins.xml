@@ -1,0 +1,11 @@
+<library path="lib/libleft_front_wheel_controller">
+
+    <class name="rm_control_study/LeftFrontWheelController"
+           type="rm_control_study::LeftFrontWheelController"
+           base_class_type="controller_interface::ControllerBase">
+        <description>
+            傻逼rmua射击控制器
+        </description>
+    </class>
+
+</library>
