@@ -5,8 +5,8 @@ controllers:
   robot_state_controller:
     type: robot_state_controller/RobotStateController
     publish_rate: 100
-  left_front_wheel_controller:
-    type: rm_control_study/LeftFrontWheelController
-    joint: "left_front_wheel_joint"
+  joint1_vel_controller:
+    type: rm_control_study/Joint1VelController
+    joint: "joint1"
     pid: { p: 0.8, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
 

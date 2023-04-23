@@ -1,0 +1,11 @@
+<library path="lib/libjoint1_vel_controller">
+
+    <class name="rm_control_study/Joint1VelController"
+           type="rm_control_study::Joint1VelController"
+           base_class_type="controller_interface::ControllerBase">
+        <description>
+            电机速度控制器
+        </description>
+    </class>
+
+</library>

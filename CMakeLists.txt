@@ -28,12 +28,11 @@ include_directories(
         ${catkin_INCLUDE_DIRS}
 )
 
+
 ## Declare a cpp library
-add_library(left_front_wheel_controller
-        src/left_front_wheel_controller.cpp)
+add_library(joint1_vel_controller
+        src/joint1_vel_controller.cpp)
 
 ## Specify libraries to link executable targets against
-target_link_libraries(left_front_wheel_controller
+target_link_libraries(joint1_vel_controller
         ${catkin_LIBRARIES})
-
-#add_dependencies(${PROJECT_NAME} ${PROJECT_NAME}_gencfg)

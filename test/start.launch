@@ -1,0 +1,18 @@
+<launch>
+    <param name="robot_description"
+           command="$(find xacro)/xacro $(find rm_control_study)/urdf/my_robot.xacro"/>
+
+    <rosparam file="$(find rm_hw)/config/actuator_coefficient.yaml" command="load" ns="rm_hw"/>
+    <rosparam file="$(find rm_control_study)/config/rm_hw.yaml" command="load"/>
+
+    <node name="rm_hw" pkg="rm_hw" type="rm_hw" respawn="false"
+          clear_params="true"/>
+
+    <rosparam file="$(find rm_control_study)/config/controllers.yaml" command="load"/>
+    <node name="controller_loader" pkg="controller_manager" type="spawner" output="screen"
+          args="
+            controllers/robot_state_controller
+            controllers/joint_state_controller
+            controllers/joint1_vel_controller
+    "/>
+</launch>
