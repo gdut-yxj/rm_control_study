@@ -1,0 +1,21 @@
+<launch>
+    <param name="robot_description"
+           command="$(find xacro)/xacro $(find rm_control_study)/urdf/my_robot.xacro"/>
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <!--        <arg name="paused" value="$(arg paused)"/>-->
+        <arg name="use_sim_time" value="true"/>
+    </include>
+
+    <!-- push robot_description to factory and spawn robot in gazebo -->
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" clear_params="true"
+          args="-z 0.0 -param robot_description -urdf -model robot" output="screen"/>
+
+    <rosparam file="$(find rm_control_study)/config/controllers.yaml" command="load"/>
+    <node name="controller_loader" pkg="controller_manager" type="spawner" output="screen"
+          args="
+            controllers/robot_state_controller
+            controllers/joint_state_controller
+            controllers/joint1_vel_controller
+    "/>
+</launch>

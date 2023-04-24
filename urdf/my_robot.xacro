@@ -3,12 +3,12 @@
     <link name="link1">
         <visual>
             <geometry>
-                <box size="0.1 0.1 0.1"/>
+                <box size="0.15 0.15 0.3"/>
             </geometry>
         </visual>
         <collision>
             <geometry>
-                <box size="0.1 0.1 0.1"/>
+                <box size="0.15 0.15 0.3"/>
             </geometry>
         </collision>
         <inertial>
@@ -41,7 +41,7 @@
         <axis xyz="0.0 0.0 1.0"/>
         <dynamics damping="1.0" friction="0.5"/>
         <limit effort="5.0" lower="-1e9" upper="1e9" velocity="5.0"/>
-        <origin xyz="0.0 0.0 0.1" rpy="0.0 0.0 0.0"/>
+        <origin xyz="0.0 0.0 0.2" rpy="0.0 0.0 0.0"/>
     </joint>
 
     <transmission name="joint1_trans">
@@ -54,4 +54,12 @@
             <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
         </joint>
     </transmission>
+
+    <gazebo>
+        <plugin name="rm_ros_control" filename="librm_robot_hw_sim.so">
+            <robotNamespace>/</robotNamespace>
+            <robotSimType>rm_gazebo/RmRobotHWSim</robotSimType>
+        </plugin>
+    </gazebo>
+
 </robot>
